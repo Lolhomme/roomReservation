@@ -10,13 +10,14 @@ export default new Vuex.Store({
   },
   mutations: {
     updateRooms(state:any, data:any) {
-      state.rooms = data.rooms
+      state.rooms = data
     }
   },
   actions: {
     getRoomsFromAPI(context:any) {
-      if (context.state.services.length === 0) {
+      if (context.state.rooms.length === 0) {
           return axios.get('booking').then(res => {
+            console.log(res.data)
               context.commit('updateRooms', res.data)
           })
       }

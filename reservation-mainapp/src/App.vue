@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/stationf-og-image.jpg">
     <router-view></router-view>
   </div>
 </template>

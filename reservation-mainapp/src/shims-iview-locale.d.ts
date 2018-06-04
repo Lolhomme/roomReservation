@@ -1,0 +1,1 @@
+declare module 'iview/dist/locale/en-US'

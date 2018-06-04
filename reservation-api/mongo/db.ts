@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+import * as mongoose from 'mongoose'
 
 mongoose.connect('mongodb://localhost:27017/rooms')
 var roomsSchema = new mongoose.Schema({
@@ -6,9 +6,9 @@ var roomsSchema = new mongoose.Schema({
     description: String,
     capacity: Number,
     equipements: [{ name: String }],
-    status: String ,
+    status: Number ,
     createdAt: Date,
-    updatedAT: Date
+    updatedAt: Date
 })
 var rooms = mongoose.model('room', roomsSchema)
 var data = [
@@ -24,7 +24,7 @@ var data = [
             "name":"Retro Projecteur"
         }
         ],
-        "status": "available",
+        "status": "0",
         "createdAt":"2016-12-07T12:39:29.812Z",
         "updatedAt":"2016-12-08T17:31:39.489Z"
     },
@@ -37,7 +37,7 @@ var data = [
             "name":"Retro Projecteur"
         }
         ],
-        "status": "available",        
+        "status": "0",        
         "createdAt":"2016-12-07T12:39:55.384Z",
         "updatedAt":"2016-12-07T13:33:37.184Z"
     },
@@ -46,7 +46,7 @@ var data = [
         "description":"Salle Okjsdkso",
         "capacity":11,
         "equipements":[],
-        "status": "available",        
+        "status": "0",        
         "createdAt":"2016-12-07T14:15:55.733Z",
         "updatedAt":"2016-12-09T16:45:19.025Z"
     },
@@ -62,7 +62,7 @@ var data = [
             "name":"Retro Projecteur"
         }
         ],
-        "status": "available",        
+        "status": "0",        
         "createdAt":"2016-12-09T16:45:34.419Z",
         "updatedAt":"2016-12-09T16:45:34.419Z"
     },
@@ -78,7 +78,7 @@ var data = [
             "name":"Retro Projecteur"
         }
         ],
-        "status": "available",        
+        "status": "0",        
         "createdAt":"2016-12-09T16:45:49.096Z",
         "updatedAt":"2016-12-09T16:45:49.096Z"
     }
@@ -91,3 +91,5 @@ rooms.count({}, (err, count) => {
       })    
     }
 })
+
+export default rooms

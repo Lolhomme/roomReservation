@@ -1,0 +1,1 @@
+concurrently "cd reservation-api && tsc" "nodemon ./reservation-api/build/app.js" "cd reservation-mainapp && npm run serve"
