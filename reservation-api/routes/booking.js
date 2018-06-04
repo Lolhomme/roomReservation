@@ -9,4 +9,13 @@ router.get('/', (req, res) => {
         res.json(allRooms)
     })
 })
+
+router.post('/update/:room_id', (req, res) => {
+    roomsModel.update(
+        { _id: req.params.room_id },
+        { $set: 
+            { status: "booked" }
+        }
+    )
+})
 module.exports = router
