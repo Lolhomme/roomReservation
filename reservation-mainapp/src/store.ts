@@ -17,7 +17,6 @@ export default new Vuex.Store({
     getRoomsFromAPI(context:any) {
       if (context.state.rooms.length === 0) {
           return axios.get('booking').then(res => {
-            console.log(res.data)
               context.commit('updateRooms', res.data)
           })
       }

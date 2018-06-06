@@ -11,7 +11,6 @@ var roomsSchema = new mongoose.Schema({
         timestamp_start: Number,
         timestamp_end: Number
     }],
-    status: Number ,
     createdAt: Date,
     updatedAt: Date
 })
@@ -31,14 +30,10 @@ var data = [
         ],
         "bookedAt": [
             {
-                // "date": "Tue Jun 05 2018 00:00:00 GMT+0200 (CEST)",
-                // "startAt": "09:00",
-                // "endAt": "10:00"
-                "timestamp_start": "",
-                "timestamp_end": ""
+                "timestamp_start": 1528254000000,
+                "timestamp_end": 1528261200000
             }
         ],
-        "status": "0",        
         "createdAt":"2016-12-07T12:39:29.812Z",
         "updatedAt":"2016-12-08T17:31:39.489Z"
     },
@@ -52,7 +47,6 @@ var data = [
         }
         ],
         "bookedAt": [],
-        "status": "0",        
         "createdAt":"2016-12-07T12:39:55.384Z",
         "updatedAt":"2016-12-07T13:33:37.184Z"
     },
@@ -62,7 +56,6 @@ var data = [
         "capacity":11,
         "equipements":[],
         "bookedAt": [],
-        "status": "0",        
         "createdAt":"2016-12-07T14:15:55.733Z",
         "updatedAt":"2016-12-09T16:45:19.025Z"
     },
@@ -79,7 +72,6 @@ var data = [
         }
         ],
         "bookedAt": [],
-        "status": "0",        
         "createdAt":"2016-12-09T16:45:34.419Z",
         "updatedAt":"2016-12-09T16:45:34.419Z"
     },
@@ -96,7 +88,6 @@ var data = [
         }
         ],
         "bookedAt": [],
-        "status": "0",        
         "createdAt":"2016-12-09T16:45:49.096Z",
         "updatedAt":"2016-12-09T16:45:49.096Z"
     }
