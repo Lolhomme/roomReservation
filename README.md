@@ -6,6 +6,8 @@ Module for booking differents rooms:
 - capacity
 
 
-# Luncch App
+# Install and Luncch App
+cd reservation-api: npm install
+cd reservation-mainapp: npm install
 
 execute start.sh script

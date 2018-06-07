@@ -11,14 +11,14 @@
         <br>
         <Row type="flex" justify="center">
             <Col span="4">
-                <DatePicker v-model="searchRoomParams.date" format="ddd-MMMM-dd-yyyy" type="date" placeholder="Select date" size="large" style="width: 100%" @on-open-change="currentStep = 0" @on-clear="selectedRoom = []"></DatePicker>
+                <DatePicker v-model="searchRoomParams.date" format="ddd-MMMM-dd-yyyy" type="date" placeholder="Select date" size="large" style="width: 100%" @on-change="selectedRoomID = ''" @on-open-change="currentStep = 0" @on-clear="selectedRoom = []"></DatePicker>
             </Col>
         </Row>
         <br>
         <br>
         <Row type="flex" justify="center">
             <Col span="4">
-                <TimePicker v-model="searchRoomParams.time" format="HH:mm" type="timerange" placeholder="Select time" size="large" style="width: 100%" @on-open-change="currentStep = 1"  @on-clear="selectedRoom = []"></TimePicker>
+                <TimePicker v-model="searchRoomParams.time" format="HH:mm" type="timerange" placeholder="Select time" size="large" style="width: 100%" @on-change="selectedRoomID = ''" @on-open-change="currentStep = 1"  @on-clear="selectedRoom = []"></TimePicker>
             </Col>
         </Row>
         <br>
