@@ -20,6 +20,15 @@ export default new Vuex.Store({
               context.commit('updateRooms', res.data)
           })
       }
-  }
+    },
+    updateAfterSave(context: any, room:any) {
+      let newState = context.state.rooms.map((e:any) => {
+        if (e._id == room._id) {
+          e = new Object(room)
+        }
+        return e
+      })
+      context.commit('updateRooms', newState)
+    }
   }
 })

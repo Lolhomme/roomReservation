@@ -1,8 +1,8 @@
 import * as mongoose from 'mongoose'
+export let ObjectId = mongoose.Schema.Types.ObjectId;
 
 mongoose.connect('mongodb://localhost:27017/rooms')
 var roomsSchema = new mongoose.Schema({
-    id: String,
     name: String,
     description: String,
     capacity: Number,

@@ -56,7 +56,7 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import axios from 'axios'
 
 @Component
@@ -71,6 +71,7 @@ export default class booking extends Vue {
         equipements: [],
     }
     currentStep: number = 0
+    save: boolean = false
 
     get rooms() {
         return this.$store.state.rooms.filter((room: any) => {
@@ -141,7 +142,16 @@ export default class booking extends Vue {
             title: 'Confirmation',
             content: `Do you want book that room?`,
             onOk: () => {
-                axios.post(`update/${this.selectedRoomID}/${this.timestamp_start}/${this.timestamp_end}`).then(response => {
+                axios.post(`booking/update/${this.selectedRoomID}/${this.timestamp_start}/${this.timestamp_end}`).then(response => {
+                    this.searchRoomParams = {
+                        date: '',
+                        time: [],
+                        capacity: 1,
+                        equipements: []
+                    },
+                    this.selectedRoomID = '',
+                    this.currentStep = 0,
+                    this.$store.dispatch(`updateAfterSave`, response.data),
                     (this as any).$Message.success('Booking saved')
                 })
             },

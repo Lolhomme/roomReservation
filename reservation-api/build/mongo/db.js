@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
+exports.ObjectId = mongoose.Schema.Types.ObjectId;
 mongoose.connect('mongodb://localhost:27017/rooms');
 var roomsSchema = new mongoose.Schema({
-    id: String,
     name: String,
     description: String,
     capacity: Number,

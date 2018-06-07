@@ -1,5 +1,6 @@
 import * as express from 'express'
 import roomsModel from './../mongo/db'
+import * as mongoose from 'mongoose'
 
 const router: express.Router = express.Router();
 
@@ -17,18 +18,21 @@ router.get('/', (req, res) => {
 })
 
 router.post('/update/:room_id/:time_start/:time_end', (req, res) => {
-    roomsModel.findOne({_id:req.params.room_id}, (err, result) => {
-        if (!err && result.length > 0) {
-            result.bookedAt.push({
+    let id = mongoose.Types.ObjectId(req.params.room_id)
+    roomsModel.findById(id, (err, room) => {
+        if (!err && room) {
+            room.bookedAt.push({
                 timestamp_start: req.params.time_start,
                 timestamp_end: req.params.time_end
             })
-            let booking = result
-            result.save()
-            res.json(booking)
+            room.save()
+            res.json(room)
+        }
+        else if (err) {
+            res.status(404).json({ message: err})
         }
         else {
-            res.status(404).json({ message: "An error occurred"})
+            res.status(404).json({ message: "An error occurred"})            
         }
     })
 })
